@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta name="Generator" content="ECSHOP v2.7.3">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>购物流程_蓝玺商城</title>
+<link rel="shortcut icon" href="images/bitbug_favicon.ico">
+<link rel="icon" href="images/bitbug_favicon.ico" type="image/gif">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/styple.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/header.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/shopping_flow.js"></script>
+<!-- <script src="js/b5m.js" charset="utf-8" id="b5mmain" type="text/javascript"></script> -->
+<!-- <link type="text/css" href="css/b5m-plugin.css" rel="stylesheet">
+<link type="text/css" href="css/b5m.css" rel="stylesheet"> -->
+</head>
+<body oncontextmenu="self.event.returnValue=false" onselectstart="return false">
+ <script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+<noscript><iframe scr="1.htm"></iframe></noscript>
+<!-- <script type="text/javascript" src="js/transport.js"></script> -->
+<script type="text/javascript" src="js/utils.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.js"></script> -->
+<div id="login_head_show" style="height:30px; line-height:30px; background:#f2f2f2; display:none;">
+  <div id="login_head_show_title" style="width:960px;margin:0 auto"> </div>
+</div>
+<!----------------------top开始----------------------->
+<div class="header-15">
+<!--99click第三方代码--><script type="text/javascript">var _oztime = (new Date()).getTime();</script>
+<div class="header-nav">
+  	<div class="header-nav-bd">
+    	<ul style="float:left;" class="header-nav-bd-r">
+          	<li><a href="#" target="_blank">天津站 </a></li>
+          	<li class="site-nav-pipe">|</li>
+          	<li> <span class="site-wap"></span> <a href="#" target="_blank">手机版</a> </li>
+        </ul>
+    	<ul class="header-nav-bd-r">
+      		<li id="loginMess">
+                <a id="wjRegister" rel="nofollow" style="display:inline;" href="javascript:toRegister();">快速注册</a>               
+        		<a id="wjLogin" style="display:inline; padding-left:5px;" href="javascript:void(0)">登录</a>
+      		</li>
+      		<li class="site-nav-pipe">|</li>
+      		<li class="my_wj mywanjiu">
+        		<a href="javascript:goUserCenter();">我的蓝玺&nbsp;</a><span class="g-icon"></span>
+                <div class="in-box mywine" style="display: none;">
+                    <a href="javascript:goUserOrder();">我的订单</a>
+                    <a href="javascript:goUserCollection();">我的收藏</a>
+                    <a href="javascript:goUserIntegral();">我的积分</a>
+                </div>
+      		</li>
+          	<li class="site-nav-pipe">|</li>
+            <li id="member" class="ls_down">
+              	<a href="#" target="_blank">我的订单</a> <span class="g-icon"></span>
+              	<div class="in-box club" style="display: none;">
+                  	<a href="#" target="_blank">乐迷社区</a>
+              	</div>
+            </li>
+          	<li class="site-nav-pipe">|</li>
+          	<li><b><a href="#" class="red61" target="_blank">礼品卡</a></b></li>
+          	<li class="site-nav-pipe">|</li>  
+      		<li class="site-nav-pipe">|</li>
+      		<li id="lest" class="ls_down">
+        		<a href="javascript:void(0);">订单查询</a> <span class="g-icon"></span>
+                <div class="in-box" style="display: none;">
+                    <a href="#" target="_blank">生鲜商城</a>
+                    <a href="#" target="_blank">商城网</a>
+                </div>
+      		</li>
+          	<li class="site-nav-pipe">|</li>
+          	<li id="other" class="ls_down">
+              	<a href="javascript:void(0)">更多频道</a> <span class="g-icon"></span>
+              	<div class="in-box" style="display: none;">
+                    <a href="#" target="_blank">集团内购</a>
+                    <a href="#" target="_blank">更多知识</a>
+                </div>
+          	</li>
+    	</ul>
+  	</div>
+</div>
+<!--头部信息-->
+    <div class="head">
+        <a title="蓝玺冷链" target="_blank" href="#" class="logo"></a>
+        <div class="logo-ad">   <div id="newABorad209">
+   <a id="adImg" target="_blank" style="display:block;"></a>
+ </div>
+</div>
+        <div class="search-box">
+          <div class="search">
+              <input value="" class="search-text" id="searchContent">
+                <a class="search-button" href="javascript:searchTopByKeyword();">搜索</a>   
+            </div>
+            <div class="hd-hot">
+                    <a href="#" target="_blank">龙虾</a>
+                    <a href="#" target="_blank">帝王蟹</a>                    
+                    <a href="#" target="_blank">扇贝</a>     
+                    <a href="#" target="_blank">北极贝</a>
+                    <a href="#" target="_blank">三文鱼</a>
+                               </div>
+        </div>
+            <div id="topMiniCart" class="go-shop">
+            <div class="shop-btn"><a href="#" target="_blank">购物车<b class="topCartNum">0</b>件商品</a></div>
+            <div id="minCartContent"></div>    
+        </div>
+        
+    </div>
+    <!--头部导航-->
+    <div class="menu-box-b">
+        <div class="menu-box">
+            <div class="nav-menu">
+                        <a href="#" id="shoppingMall" target="_self" class="class_button">全部商品分类</a>
+                       <!-- <a href="" class="">919抄底<img style="position:absolute; right:-5px; top:0px;" src=""/></a>-->
+                        <a href="#" class="mr" target="_self">首页</a>
+                        <a href="#" class="" target="_blank">冻品特卖<img style="position:absolute; right:-3px; top:0px;" src="images/icon-hot.gif"></a>
+                        <a href="#" class="" target="_blank">限时闪购</a>      
+                        <a href="#" class="" target="_blank">海鲜馆</a>
+                        <a href="#" target="_blank">时蔬馆</a>           
+  </div>
+   </div>
+   </div>
+    </div>
+<!----------------------top完成----------------------->
+  <div class="top_nav">
+  <div class="navlist">
+   <a href="index.html">首页</a> <code>&gt;</code> <a href="#">海鲜馆</a> <code>&gt;</code> <a href="#">帝王蟹</a>
+ 
+  </div>
+  </div>
+
+<script type="text/javascript">
+
+<!--
+function checkSearchForm()
+{
+		if(document.getElementById('so_txt').value)
+		{
+				return true;
+		}
+		else
+		{
+				alert("请输入搜索关键词！");
+				return false;
+		}
+}
+-->
+
+</script>
+<!-- <script>
+    $(function(){
+        $('.daohangyou .menu').on('mouseover',function(){
+            $(this).addClass('hover');
+        });
+        $('.daohangyou .menu').on('mouseout',function(){
+            $(this).removeClass('hover');
+        });
+    });
+   
+       
+</script> -->
+<script type="text/javascript" src="js/jquery-1_002.js"></script> 
+  <div class="header_tianxie">
+    <div class="step_box" id="step_1"></div>
+  <div style="height:28px;">
+    <div style="display: none;" class="flow_yf"> 满<span class="red">￥100</span>元即免运费，您还差<span class="red">71.50元</span>，<a class="blue" href="#">再逛逛？</a> </div>
+  </div>
+  <div class="clear"></div>
+  </div>
+<div class="block"> 
+  <script type="text/javascript" src="js/showdiv.js"></script> 
+  <script type="text/javascript">
+      var user_name_empty = "请输入您的用户名！";
+      var email_address_empty = "请输入您的电子邮件地址！";
+      var email_address_error = "您输入的电子邮件地址格式不正确！";
+      var new_password_empty = "请输入您的新密码！";
+      var confirm_password_empty = "请输入您的确认密码！";
+      var both_password_error = "您两次输入的密码不一致！";
+      var show_div_text = "请点击更新购物车按钮";
+      var show_div_exit = "关闭";
+    </script>
+   <form id="formCart" name="formCart" method="post" action="buyProduct.html">
+    <table class="cart_table" width="100%" align="center" border="0" cellpadding="5" cellspacing="0">
+      <tbody><tr>
+        <th bgcolor="#ffffff">商品图片</th>
+        <th bgcolor="#ffffff">商品名称</th>
+        <th bgcolor="#ffffff">重量</th>
+                <th bgcolor="#ffffff">市场价</th>
+                <th bgcolor="#ffffff">本店价</th>
+        <th bgcolor="#ffffff">购买数量</th>
+        <th bgcolor="#ffffff">操作</th>
+      </tr>
+            <tr class="proTR">
+        <td align="center" bgcolor="#ffffff"> 
+           
+          <a href="#" target="_blank"><img src="images/niurou1.jpg" title="精品牛肉1" style="border:1px solid #EAEAEA;" width="65" border="0" height="65"></a>&nbsp;&nbsp;         
+          </td>
+        <td align="center" bgcolor="#ffffff">    
+          <a href="#" target="_blank" class="f6">精品牛肉1</a> 
+          </td>
+        <td align="center" bgcolor="#ffffff">1克&nbsp;</td>
+                <td align="center" bgcolor="#ffffff">23.76</td>
+                <td align="center" bgcolor="#ffffff">19.80</td>
+        <td align="center" bgcolor="#ffffff">          
+          <p class="num_line"> <span class="fl num_down">&nbsp;</span>
+            <input name="goods_number[1069]" repertory="100" id="goods_number_1069" value="15" size="4" class="fl num_input" type="text">
+            <span class="fl num_up">&nbsp;</span> </p>
+          </td>
+        <td align="center" bgcolor="#ffffff"><a href="javascript:if%20(confirm('#'))%20location.href='flow.php?step=drop_goods&amp;id=1069';" class="f6">删除</a></td>
+      </tr>
+            <tr class="proTR">
+        <td align="center" bgcolor="#ffffff"> 
+           
+          <a href="#" target="_blank"><img src="images/niurou1.jpg" title="精品牛肉2" style="border:1px solid #EAEAEA;" width="65" border="0" height="65"></a>&nbsp;&nbsp;       
+          </td>
+        <td align="center" bgcolor="#ffffff"> 
+          <a href="#" target="_blank" class="f6">精品牛肉2</a>   
+           
+          </td>
+        <td align="center" bgcolor="#ffffff">1克&nbsp;</td>
+                <td align="center" bgcolor="#ffffff">20.16</td>
+                <td align="center" bgcolor="#ffffff">16.80</td>
+        <td align="center" bgcolor="#ffffff">          
+          <p class="num_line"> <span class="fl num_down">&nbsp;</span>
+            <input name="goods_number[1068]" repertory="100" id="goods_number_1068" value="10" size="4" class="fl num_input" type="text">
+            <span class="fl num_up">&nbsp;</span> </p>  
+          </td>
+        <td align="center" bgcolor="#ffffff"><a href="javascript:if%20(confirm('#'))%20location.href='flow.php?step=drop_goods&amp;id=1068';" class="f6">删除</a></td>
+      </tr>
+            <tr class="proTR">
+        <td align="center" bgcolor="#ffffff">       
+          <a href="#" target="_blank"><img src="images/niurou2.jpg" title="精品牛肉3" style="border:1px solid #EAEAEA;" width="65" border="0" height="65"></a>&nbsp;&nbsp;     
+          </td>
+        <td align="center" bgcolor="#ffffff"> 
+          <a href="#" target="_blank" class="f6">精品牛肉3</a> 
+           
+          </td>
+        <td align="center" bgcolor="#ffffff">50克&nbsp;</td>
+                <td align="center" bgcolor="#ffffff">1425.60</td>
+                <td align="center" bgcolor="#ffffff">1188.00</td>
+        <td align="center" bgcolor="#ffffff">          
+          <p class="num_line"> <span class="fl num_down">&nbsp;</span>
+            <input name="goods_number[1070]" repertory="100" id="goods_number_1070" value="1" size="4" class="fl num_input" type="text">
+            <span class="fl num_up">&nbsp;</span> </p>
+          
+          </td>
+        <td align="center" bgcolor="#ffffff"><a href="javascript:if%20(confirm('#'))%20location.href='flow.php?step=drop_goods&amp;id=1070';" class="f6">删除</a></td>
+      </tr>
+            <tr>   
+      </tr>
+      <tr>
+        <td colspan="7"><p style="display: none;" class="flow_left">您再购买<span id="flow_cha" class="red"></span>的商品，即可获得购物<span class="red">满100元免运费</span>的优惠！
+          
+          </p><p class="flow_right">应付商品金额:<span class="bred">¥1653.0</span></p>
+          <p class="flow_left">您已免运费</p></td>
+      </tr>
+    </tbody></table>
+    <input name="step" value="update_cart" type="hidden">
+    <div class="blank"></div>
+    <table width="100%" align="center" bgcolor="#dddddd" border="0" cellpadding="5" cellspacing="0">
+      <tbody><tr>
+        <td bgcolor="#ffffff"><a href="#"><img src="images/continue.png" alt="continue"></a>
+          <a href="#" style="margin-left:20px; font-size:13px;">清空购物车</a></td>
+        <td align="right" bgcolor="#ffffff"><!--<a href="flow.php?step=checkout"><img src="themes/yanwoyinxiang/images/checkout.gif" alt="checkout" /></a>-->
+
+          <input name="submit" class="bnt_blue_1 submitBtn" value=" " type="submit"></td>
+      </tr>
+    </tbody></table>
+     <div class="blank"></div>
+  </form>
+
+  <script type="text/javascript">
+  	$(function(){
+		var count = function(){
+			var man = 100;
+			var yingfu = $(".cart_table td .bred").html().replace('¥','');
+			var cha = parseFloat(man) - parseFloat(yingfu);
+			//alert(cha);
+			if(cha > 0){
+				$(".flow_yf").show();
+				$(".cart_table td .flow_left").eq(0).show();
+				$(".cart_table td .flow_left").eq(1).hide();
+				$(".flow_yf .red").eq(1).text(cha.toFixed(1)+'元');
+				$("#flow_cha").text(cha.toFixed(1)+'元');
+			}else{
+				$(".flow_yf").hide();
+				$(".cart_table td .flow_left").eq(0).hide();
+				$(".cart_table td .flow_left").eq(1).show();
+			}
+		}
+		count();
+		var rejisuan = function(){
+			var price = 0;
+			$(".cart_table tr.proTR").each(function(index, element) {
+                var homePrice = $(this).find("td").eq(4).text();
+				var num = $(this).find("td").eq(5).find("input").val();
+				price += parseFloat(homePrice.replace('￥','')) * parseFloat(num);
+				
+            });
+			$(".cart_table td .bred").text('¥' + price.toFixed(1));
+			count();
+		}
+		rejisuan();
+		$(".num_up").click(function(){
+			var val = $(this).prev().val();
+			if(parseInt(val) < parseInt($(this).prev().attr("repertory"))){
+				$(this).prev().val(parseInt(val) + 1);
+				rejisuan();
+			}
+		});
+		$(".num_down").click(function(){
+			var val = $(this).next().val();
+			if(parseInt(val) > 1){
+				$(this).next().val(parseInt(val) - 1);
+				rejisuan();
+			}
+		});
+		$(".num_input").keyup(function(){
+			this.value=this.value.replace(/[^0-9]/g,'');this.value=this.value.substring(0,4);
+			if(this.value == '' || this.value == '0'){
+				this.value = 1;
+			}
+			if(parseInt(this.value) > parseInt($(this).attr("repertory"))){
+				this.value = $(this).attr("repertory");
+			}
+			rejisuan();
+		});
+	})
+  </script> 
+     
+  
+   
+  </div>
+
+<div class="blank5"></div>
+ <div style="width:1190px;" id="foot">
+  <div id="footer">
+    <div id="help_box">		   
+      <dl class="help">
+              <dt class="dt1"></dt>
+                <dd><a target="_blank" href="#" title="购物流程">购物流程</a></dd>
+                <dd><a target="_blank" href="#" title="发票制度">发票制度</a></dd>
+              </dl>
+                
+      <dl class="help">
+              <dt class="dt2"></dt>
+                <dd><a target="_blank" href="#" title="网上支付">网上支付</a></dd>
+                <dd><a target="_blank" href="#" title="货到付款">货到付款</a></dd>
+                <dd><a target="_blank" href="#" title="礼品卡">礼品卡</a></dd>
+              </dl>
+                
+      <dl class="help">
+              <dt class="dt3"></dt>
+                <dd><a target="_blank" href="#" title="配送时间及范围">配送时间及范围</a></dd>
+                <dd><a target="_blank" href="#" title="退换货政策">退换货政策</a></dd>
+              </dl>
+                
+      <dl class="help">
+              <dt class="dt4"></dt>
+                <dd><a target="_blank" href="#" title="联系客服">联系客服</a></dd>
+                <dd><a target="_blank" href="#" title="找回密码">找回密码</a></dd>
+                <dd><a target="_blank" href="#" title="常见问题">常见问题</a></dd>
+              </dl>
+                   <div class="clear"></div>
+    </div>
+    <div class="eImg">
+    	<img src="images/eImg.png">
+    </div>
+    <div class="clear"></div>  
+    <div id="honor">
+        <a class="honor1" href="#" target="_blank"></a>
+        <a class="honor2" href="#" target="_blank"></a>
+        <a class="honor3" href="#" target="_blank"></a>
+        <a class="honor4" href="#" target="_blank"></a>
+        <a class="honor5" href="#" target="_blank"></a>
+        <div class="clear"></div>
+    </div>
+        <div id="links">
+        <a target="_blank" href="#">
+    关于我们</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    联系我们</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    大宗购买</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    网站地图</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    人才招聘</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    投诉建议</a>
+        <span>|</span>
+            <a target="_blank" href="#">
+    网站链接</a>
+            	<span> <a href="#" target="_blank">津ICP备14000603号-3</a> </span>
+    </div>
+        <div id="copyright">
+    	<img src="images/bottomlogo.png">
+	</div>
+  </div>
+  
+</div>
+<script type="text/javascript">
+	function fhTop(){
+		$(document).scrollTop(0);
+	}
+</script>
+
+<div style="left: 1393.5px; display: none;" class="floating">
+	<ul>
+            <li class="l1"><a target="_blank" href="#">在线客服</a></li>
+        <li class="l2"><a href="#">购物袋<span class="shuziliang">20</span></a></li>       
+        <li class="l3"><a href="#">最近浏览</a>
+        	<div class="floating_scan_main">
+            	 <h5>近期浏览</h5>
+                 <ul>
+                    <li class="w90">
+                     <a title="澳洲牛腱" target="_blank" href="#">
+					 <img src="images/109_thumb_G_1435626155028.jpg" height="90" width="90"></a>
+                   </li>
+                 </ul>
+            </div>
+        </li>
+        <li class="l5"><a href="#">红包福利</a>
+        	<div class="floating_hb">
+            	<a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </li>
+        <li class="l6"><a target="_blank" href="#">下载APP</a>
+        	<div class="floating_wx">
+            	<img src="images/217b.png">
+            </div>
+        </li>
+        <li class="l4"><a href="javascript:;" onclick="fhTop()">返回顶部</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+	//网页右侧浮动
+	$(document).ready(function(e){
+    var $floating = $('.floating');
+    $(window).scroll(function(e){
+        var px = $(window).scrollTop();
+        if(px>450){
+            $floating.show();
+        }else{
+            $floating.hide();
+        }
+        
+		$('#fanhui').click(function(){
+           $(window).scrollTop(0);
+        });
+		
+    });
+});
+	
+	$(function(){
+		$(".floating ul li").hover(function(){
+			$(this).find("div").eq(0).stop().show();
+		},function(){
+			$(this).find("div").eq(0).stop().hide();
+		});
+	})
+	//手机显示百分百
+	$("#foot").width($(window).width());
+</script>
+
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3527f095e0ea875435ce750ff7f8436c' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="js/h.js" type="text/javascript"></script>
+<a href="#" target="_blank"><img src="images/21.gif" border="0" height="20" width="20"></a>
+</div>
+<script type="text/javascript" src="js/header.js"></script> 
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" charset="utf-8">
+ //lium
+	function update_($id, $flag)
+{	
+	$num = document.getElementById('goods_number_'+$id).value;
+	$num = parseInt($num);
+	if ($flag == 0)
+	{
+		$num = $num - 1;
+		if($num == 0) $num = 1;
+	}
+	if ($flag == 1)
+	{
+		$num = $num + 1;
+	}
+	else
+	{
+		$num = $num;
+	}
+	
+	location.href='flow.php?step=update_q&id='+$id+'&num='+$num;
+}
+</script>
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+var username_empty = " 用户名不能为空。";
+var username_shorter = " 用户名长度不能少于 3 个字符。";
+var username_invalid = " 用户名只能是由字母数字以及下划线组成。";
+var password_empty = " 密码不能为空。";
+var password_shorter = " 请输入新密码";
+var confirm_password_invalid = " 密码输入不一致";
+var email_empty = " Email 为空";
+var email_invalid = " Email 不是合法的地址";
+var agreement = "- 您没有接受协议";
+var msn_invalid = " msn地址不是一个有效的邮件地址";
+var qq_invalid = " QQ号码不是一个有效的号码";
+var home_phone_invalid = " 家庭电话不是一个有效号码";
+var office_phone_invalid = " 办公电话不是一个有效号码";
+var mobile_phone_invalid = " 手机号码不是一个有效号码";
+var msg_un_blank = " 用户名不能为空";
+var msg_un_length = " 用户名最长不得超过7个汉字";
+var msg_un_format = " 用户名含有非法字符";
+var msg_un_registered = " 用户名已经存在,请重新输入";
+var msg_can_rg = " 可以注册";
+var msg_email_blank = " 请输入邮箱";
+var msg_email_registered = " 邮箱已存在";
+var msg_email_format = " 邮箱地址格式错误";
+var msg_blank = "不能为空";
+var no_select_question = " 您没有完成密码提示问题的操作";
+var passwd_balnk = "密码中不能包含空格";
+var username_exist = "用户名 %s 已经存在";
+var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
+var btn_buy = "购买";
+var is_cancel = "取消";
+var select_spe = "请选择商品属性";
+</script>
+
+</body></html>

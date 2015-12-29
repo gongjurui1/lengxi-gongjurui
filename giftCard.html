@@ -1,0 +1,636 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta name="Generator" content="ECSHOP v2.7.3">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Keywords" content="蓝玺冷链-礼品卡">
+<meta name="Description" content="蓝玺冷链礼品卡">
+<title>蓝玺冷链_礼品卡</title>
+<link rel="shortcut icon" href="images/bitbug_favicon.ico">
+<link rel="icon" href="images/bitbug_favicon.ico" type="image/gif">
+<link href="css/header.css" rel="stylesheet" type="text/css">
+<link href="css/new_lipinka.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1_004.js"></script>
+<script type="text/javascript" src="js/jquery-1_003.js"></script>
+<script type="text/javascript" src="js/jiesuan.js"></script>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.slider {
+	height: 350px;
+	margin: auto 0;
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+/*显示前进后退按钮*/
+.slider:hover .nav-cursor {
+	display: block;
+}
+.slider-wrapper {
+	width: 400%;
+	position: relative;
+	height: 350px;
+}
+.slider .em {
+	background: url(images/sm1.png);
+	color: #fff;
+	font-size: 12px;
+	height: 220px;
+	padding: 50px 8px 0 18px;
+	position: absolute;
+	right: 143px;
+	width: 194px;
+	z-index: 100;
+	line-height: 20px;
+	top: 0;
+}
+.slider-wrapper li {
+	float: left;
+	cursor: pointer;
+	width: 25%;
+	height: 350px;
+	z-index: 1;
+}
+.slider-wrapper .image1 {
+	background: url(images/ka1.png) no-repeat center center;
+}
+.slider-wrapper .image2 {
+	background: url(images/ka2.png) no-repeat center center;
+}
+.slider-wrapper .image3 {
+	background: url(images/ka3.png) no-repeat center center;
+}
+/*导航图标*/
+.slider-nav {
+	bottom: 46px;
+	position: absolute;
+	left: 80%;
+	float: left;
+	cursor: pointer;
+}
+.slider-nav li {
+	float: left;
+	position: relative;
+	left: -50%;
+	background:url(images/nav2.png) no-repeat;
+	width: 10px;
+	height: 10px;
+	z-index: 2;
+	text-indent: -9999px;
+	margin-top: 3px;
+	margin-left: 18px;
+}
+/*激活样式*/
+.slider-nav .focus {
+	background-image: url(images/nav1.png);
+}
+.nav-cursor {
+	position: absolute;
+	height: 74px;
+	width: 40px;
+}
+#prev {
+	left: 0;
+	background: url(images/focus_btn.png);
+	background-position: 0 -74px;
+	margin-top: -37px;
+	top: 50%;
+	cursor: pointer;
+}
+#next {
+	right: 0;
+	background: url(images/focus_btn.png);
+	background-position: -40px -74px;
+	margin-top: -37px;
+	top: 50%;
+	cursor: pointer;
+}
+#prev:hover {
+	background: url(images/focus_btn.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+#next:hover {
+	background: url(images/focus_btn.png);
+	background-position: -40px 0;
+	background-repeat: no-repeat;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//元素个数
+		var count = $(".slider-wrapper li").length;
+		//图片宽度
+		var imgWidth= $(".slider-wrapper li").eq(0).width();
+		//导航图标索引
+		var index = 0;
+		//定时任务
+		var interval = 0;
+		// 移动元素外层，ul
+		var $ul = $(".slider-wrapper");
+		var $lis = $ul.children('li');
+		/**
+		* 动画展示图片
+		* @param direction 图片动画方向，left 向左，right向右
+		*/
+		function myAnimate (direction) {
+			var dt = direction || "left";
+			if(!$ul.is(":animated")){
+				if(dt === "left"){
+					//显示下一张，向左移动
+					$ul.animate({"margin-left":"-"+imgWidth+"px"}, "slow",function (e) {
+						//取得当前激活图片下标
+						index = (++index)%count;
+						$ul.css({"margin-left":0}).children('li').last().after($ul.children('li').first());
+						// 导航小图标切换
+						$(".slider-nav li").removeClass('focus').eq(index).addClass('focus');
+					});
+				}else if(dt === "right"){
+					$ul.css({"margin-left":"-"+imgWidth+"px"}).children('li').first().before($ul.children('li').last());
+					$ul.animate({"margin-left":0}, "slow",function (e) {
+						//如果index小于零，则表示第一张，index = count - 1;
+						index = (--index)<0?count-1:index;
+						// 导航小图标切换
+						$(".slider-nav li").removeClass('focus').eq(index).addClass('focus');
+					});
+				}
+			}
+		}
+		// 前进
+		$("#prev").on("click",function (e) {
+			e.preventDefault();
+			myAnimate("left");
+		});
+		// 后退
+		$("#next").on("click",function  (e) {
+			e.preventDefault();
+			myAnimate("right");
+		});
+		/**
+		*自动轮播
+		* @param interval 时间间隔
+		*/
+		function autoPlay (interval) {
+			// 默认向左
+			return setInterval(myAnimate, interval);
+		}
+		//默认自动显示下一页
+		var interval = autoPlay(3000);
+		/*
+		* 鼠标悬停，停止自动轮播
+		*/
+		$(".slider-wrapper,.nav-cursor").hover(function() {
+			clearInterval(interval);
+		}, function() {
+			interval = autoPlay(3000);
+		});
+	});
+</script>
+</head>
+<body oncontextmenu="self.event.returnValue=false" onselectstart="return false">
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+<noscript><iframe scr="1.htm"></iframe></noscript>
+<script type="text/javascript" src="js/transport.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/jquery-1.js"></script>
+<div id="login_head_show" style="height:30px; line-height:30px; background:#f2f2f2; display:none;">
+  <div id="login_head_show_title" style="width:960px;margin:0 auto"> </div>
+</div>
+<div style="width:100%; background:white;">
+<noscript><iframe scr="1.htm"></iframe></noscript>
+<!----------------------top开始----------------------->
+<div class="header-15">
+
+<!--99click第三方代码--><script type="text/javascript">var _oztime = (new Date()).getTime();</script>
+
+<div class="header-nav">
+  	<div class="header-nav-bd">
+    	<ul style="float:left;" class="header-nav-bd-r">
+          	<li><a href="#" target="_blank">天津站 </a></li>
+          	<li class="site-nav-pipe">|</li>
+          	<li> <span class="site-wap"></span> <a href="#" target="_blank">手机版</a> </li>
+        </ul>
+    	<ul class="header-nav-bd-r">
+      		<li id="loginMess">
+                <a id="wjRegister" rel="nofollow" style="display:inline;" href="javascript:toRegister();">快速注册</a>               
+        		<a id="wjLogin" style="display:inline; padding-left:5px;" href="javascript:void(0)">登录</a>
+      		</li>
+      		<li class="site-nav-pipe">|</li>
+      		<li class="my_wj mywanjiu">
+        		<a href="javascript:goUserCenter();">我的蓝玺&nbsp;</a><span class="g-icon"></span>
+                <div class="in-box mywine" style="display: none;">
+                    <a href="javascript:goUserOrder();">我的订单</a>
+                    <a href="javascript:goUserCollection();">我的收藏</a>
+                    <a href="javascript:goUserIntegral();">我的积分</a>
+                </div>
+      		</li>
+          	<li class="site-nav-pipe">|</li>
+            <li id="member" class="ls_down">
+              	<a href="#" target="_blank">我的订单</a> <span class="g-icon"></span>
+              	<div class="in-box club" style="display: none;">
+                  	<a href="#" target="_blank">乐迷社区</a>
+              	</div>
+            </li>
+          	<li class="site-nav-pipe">|</li>
+          	<li><b><a href="#" class="red61" target="_blank">礼品卡</a></b></li>
+          	<li class="site-nav-pipe">|</li> 
+      		<li class="site-nav-pipe">|</li>
+      		<li id="lest" class="ls_down">
+        		<a href="javascript:void(0);">订单查询</a> <span class="g-icon"></span>
+                <div class="in-box" style="display: none;">
+                   
+                    <a href="#" target="_blank">生鲜商城</a>
+                    <a href="#" target="_blank">商城网</a>
+                </div>
+      		</li>
+          	<li class="site-nav-pipe">|</li>
+          	<li id="other" class="ls_down">
+              	<a href="javascript:void(0)">更多频道</a> <span class="g-icon"></span>
+              	<div class="in-box" style="display: none;">
+                    <a href="#" target="_blank">集团内购</a>
+                    <a href="#" target="_blank">更多知识</a>
+                </div>
+          	</li>
+    	</ul>
+  	</div>
+</div>
+<!--头部信息-->
+
+    <div class="head">
+        <a title="蓝玺冷链" target="_blank" href="#" class="logo"></a>
+        <div class="logo-ad">   <div id="newABorad209">
+   <a id="adImg" target="_blank" style="display:block;"></a>
+ </div>
+
+</div>
+        <div class="search-box">
+          <div class="search">
+              <input value="" class="search-text" id="searchContent">
+                <a class="search-button" href="javascript:searchTopByKeyword();">搜索</a>   
+            </div>
+            <div class="hd-hot">
+                    <a href="#" target="_blank">龙虾</a>
+                    <a href="#" target="_blank">帝王蟹</a>                    
+                    <a href="#" target="_blank">扇贝</a>     
+                    <a href="#" target="_blank">北极贝</a>
+                    <a href="#" target="_blank">三文鱼</a>
+                               </div>
+        </div>
+            <div id="topMiniCart" class="go-shop">
+            <div class="shop-btn"><a href="#" target="_blank">购物车<b class="topCartNum">0</b>件商品</a></div>
+            <div id="minCartContent"></div>    
+        </div>
+        
+    </div>
+    <!--头部导航-->
+    <div class="menu-box-b">
+        <div class="menu-box">
+            <div class="nav-menu">
+                        <a href="#" id="shoppingMall" target="_self" class="class_button">全部商品分类</a>
+                       <!-- <a href="" class="">919抄底<img style="position:absolute; right:-5px; top:0px;" src=""/></a>-->
+                        <a href="#" class="mr" target="_self">首页</a>
+                        <a href="#" class="" target="_blank">冻品特卖<img style="position:absolute; right:-3px; top:0px;" src="images/icon-hot.gif"></a>
+                        <a href="#" class="" target="_blank">限时闪购</a>      
+                        <a href="#" class="" target="_blank">海鲜馆</a>
+                        <a href="#" target="_blank">时蔬馆</a>           
+  </div>
+   </div>
+   </div>
+    </div>
+<!----------------------top完成----------------------->
+ <div class="top_nav">
+  <div class="navlist">
+   <a href="index.html">首页</a> <code>&gt;</code> <a href="#">海鲜馆</a> <code>&gt;</code> <a href="#">帝王蟹</a> 
+  </div>
+  </div>
+
+
+<script type="text/javascript">
+<!--
+function checkSearchForm()
+{
+		if(document.getElementById('so_txt').value)
+		{
+				return true;
+		}
+		else
+		{
+				alert("请输入搜索关键词！");
+				return false;
+		}
+}
+-->
+</script>
+<script>
+    $(function(){
+        $('.daohangyou .menu').on('mouseover',function(){
+            $(this).addClass('hover');
+        });
+        $('.daohangyou .menu').on('mouseout',function(){
+            $(this).removeClass('hover');
+        });
+    });
+   
+       
+</script>
+<script type="text/javascript" src="images/jquery-1_002.js"></script><div class="slider">
+  <ul style="margin-left: 0px;" class="slider-wrapper clearfix">
+    
+    
+    <li class="image1"></li><li class="image2"></li><li class="image3"></li>
+  </ul>
+  <ul class="slider-nav">
+    <li class="focus">1</li>
+    <li class="">2</li>
+    <li class="">3</li>
+  </ul>
+  <span class="nav-cursor" id="prev"></span> <span class="nav-cursor" id="next"></span>
+  <div class="em">
+    <p>燕之祖卡是由华泰嘉品有限公司发行的预付费礼品卡，可在燕之祖官方商城上使用。</p>
+    <ul>
+      <li style="list-style:disc">多种节日卡卡面，满足不同节日 需求；</li>
+      <li style="list-style:disc">针对企业定制VI，传播企业文化；</li>
+      <li style="list-style:disc">全新推出个人自定义卡面，满足 个性需求；</li>
+      <li style="list-style:disc">永久有效，无有效期限制；</li>
+      <li style="list-style:disc">线上购物价格专享；</li>
+    </ul>
+  </div>
+</div>
+<div class="box_item" id="card_list">
+  <div class="wrap_bg">
+    <h3>实物礼品卡</h3>
+    <ul class="tab_trigger">
+      <li class="on">经典</li>
+      <li>春节</li>
+      <li>情人节</li>
+      <li>女人节</li>
+      <li>中秋节</li>
+      <li>教师节</li>
+      <li>国庆节</li>
+      <li>圣诞节</li>
+      <li>生日</li>
+      <li>结婚</li>
+    </ul>
+  </div>
+  <div class="tab_plans">
+    <form id="mycard" action="flow.php?step=add_to_cart" method="post" name="gift_card_fee">
+      <div class="card" id="card_list1">
+        <ul>
+                      <li>
+              <div class="cimg"><img src="images/94_thumb_G_1435532535046.jpg"></div>
+            <div class="price"><strong>面值：￥<span>100</span></strong><em>燕窝印象价：￥ <span class="true_price">100</span></em></div>
+            <input value="94" name="card[0][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[0][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/95_thumb_G_1435532566501.jpg"></div>
+            <div class="price"><strong>面值：￥<span>200</span></strong><em>燕窝印象价：￥ <span class="true_price">200</span></em></div>
+            <input value="95" name="card[1][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="2" autocomplete="off" name="card[1][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/96_thumb_G_1435532603952.jpg"></div>
+            <div class="price"><strong>面值：￥<span>500</span></strong><em>燕窝印象价：￥ <span class="true_price">500</span></em></div>
+            <input value="96" name="card[2][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[2][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/97_thumb_G_1435532616095.jpg"></div>
+            <div class="price"><strong>面值：￥<span>1000</span></strong><em>燕窝印象价：￥ <span class="true_price">1000</span></em></div>
+            <input value="97" name="card[3][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[3][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/98_thumb_G_1435532631398.jpg"></div>
+            <div class="price"><strong>面值：￥<span>1500</span></strong><em>燕窝印象价：￥ <span class="true_price">1500</span></em></div>
+            <input value="98" name="card[4][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[4][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/99_thumb_G_1435532644823.jpg"></div>
+            <div class="price"><strong>面值：￥<span>2000</span></strong><em>燕窝印象价：￥ <span class="true_price">2000</span></em></div>
+            <input value="99" name="card[5][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[5][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/100_thumb_G_1435532658257.jpg"></div>
+            <div class="price"><strong>面值：￥<span>2500</span></strong><em>燕窝印象价：￥ <span class="true_price">2500</span></em></div>
+            <input value="100" name="card[6][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[6][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                    <li>
+              <div class="cimg"><img src="images/101_thumb_G_1435532669320.jpg"></div>
+            <div class="price"><strong>面值：￥<span>5000</span></strong><em>燕窝印象价：￥ <span class="true_price">5000</span></em></div>
+            <input value="101" name="card[7][id]" type="hidden">
+            <div class="cnum"><a class="num_plus"></a>
+              <div>
+                <input class="num_card" value="0" autocomplete="off" name="card[7][num]" type="text">
+              </div>
+              <a class="num_minus"></a></div>
+          </li>
+                  </ul>
+      </div>
+      <div class="cardtotal"><strong>总金额TOTAL</strong>
+        <p><b class="total" id="sum">400</b>元</p>
+        <input class="pay" value="" type="submit">
+        <input value="" class="reset" onclick="text()" type="reset">
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="foot">
+	<div class="w1200 food-top">
+    	<div class="ser-box">
+			<a href="#" target="_blank"><img src="images/bottom01.png"></a>
+			<a href="#" target="_blank"><img src="images/bottom02.png"></a>
+			<a href="#" target="_blank"><img src="images/bottom03.png"></a>
+			<a href="#" target="_blank"><img src="images/bottom04.png"></a>
+        </div>
+        <div class="foot-menu">
+        	<div class="left">
+            	<a href="#" class="logo"><img src="images/logo.png" width="143" height="120"></a>
+                <div class="tel-day">
+                	<div class="kf">客服电话：4008-777-525</div>
+                  	<div>周一至周日9：00-20：00</div>
+                </div>
+            </div>
+        	<div class="mid">	
+          		<div class="menu">
+       			 <dl>  
+            		<dt>关于我们</dt>
+            			<dd><a href="#" target="_blank" class="red" rel="nofollow">公司简介</a></dd>
+           				<dd><a href="#" target="_blank" rel="nofollow">战略合作</a></dd>
+            			<dd><a href="#" target="_blank" rel="nofollow">蓝玺基地</a></dd>
+            			<dd><a href="#" target="_blank" rel="nofollow">媒体报道</a></dd>
+        		 </dl>
+        		 <dl>
+           		   <dt>新手指南</dt>
+                   <dd><a href="#" target="_blank" rel="nofollow">新用户注册 </a></dd>
+                   <dd><a href="#" target="_blank" rel="nofollow">购物流程</a></dd>
+                   <dd><a href="#" target="_blank" rel="nofollow">蓝玺优势</a></dd>
+                  </dl>
+                <dl>
+                    <dt>会员相关</dt>
+                    <dd><a href="#" target="_blank" rel="nofollow">会员等级</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">积分政策</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">会员权益</a></dd>                  
+                    <dd><a href="#" target="_blank" rel="nofollow">会员返利</a></dd>
+                </dl>
+                <dl>
+                    <dt>配送服务</dt>
+                    <dd><a href="#" target="_blank" rel="nofollow">配送范围及时限</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">配送运费</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">运输包装说明</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">发票制度</a></dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd><a href="#" target="_blank" rel="nofollow">退换货流程</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">退款说明</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">正品保障</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">投诉建议</a></dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd><a href="#" target="_blank" rel="nofollow">货到付款</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">在线支付</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">优惠券</a></dd>
+                    <dd><a href="#" target="_blank" rel="nofollow">礼品卡</a></dd>
+                </dl>
+           </div>
+            </div>
+        	<div class="right"> 	
+            	<ul>
+		            <li><img src="images/weibo.png"><span>蓝玺微博</span></li>
+		            <li><img src="images/weixin.png"><span>蓝玺微信</span></li>
+            	</ul>
+            </div>
+        </div>
+    </div>
+           
+    </div>
+	  <div class="ft-tips">
+        <div class="bd">
+            <span>版权所有2009-1019天津我爱买电子商务有限公司 津ICP备11006843-1.全国售后服务热线4008-777-525</span>
+            <span>
+                <a target="_blank" href="#" rel="nofollow">联系我们</a> 
+                · <a target="_blank" href="#" rel="nofollow">隐私声明</a> 
+                 <!--a target="_blank" href="/help/yqlj.html">友情链接</a--> 
+                · <a target="_blank" href="#" rel="nofollow">媒体报道</a> 
+                · <a target="_blank" href="#" rel="nofollow">消费者保护</a> 
+                · <a target="_blank" href="#" rel="nofollow">真伪鉴别</a> 
+            </span>
+        </div>
+    </div>
+
+<script type="text/javascript">
+	function fhTop(){
+		$(document).scrollTop(0);
+	}
+</script>
+<div style="left: 1533.5px; display: none;" class="floating">
+	<ul>
+            <li class="l1"><a target="_blank" href="#">在线客服</a></li>
+        <li class="l2"><a href="#">购物袋<span class="shuziliang">0</span></a></li>       
+        <li class="l3"><a href="#">最近浏览</a>
+        	<div class="floating_scan_main">
+            	 <h5>近期浏览</h5>
+                 <ul>
+                 <li class="floating_scan_none">您最近没有浏览任何商品！</li>
+                 </ul>
+            </div>
+        </li>
+        <li class="l5"><a href="#">红包福利</a>
+        	<div class="floating_hb">
+            	<a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </li>
+        <li class="l6"><a target="_blank" href="#">下载APP</a>
+        	<div class="floating_wx">
+            	<img src="images/217b.png">
+            </div>
+        </li>
+        <li class="l4"><a href="javascript:;" onclick="fhTop()">返回顶部</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+	//网页右侧浮动
+	$(document).ready(function(e){
+    var $floating = $('.floating');
+    $(window).scroll(function(e){
+        var px = $(window).scrollTop();
+        if(px>450){
+            $floating.show();
+        }else{
+            $floating.hide();
+        }
+        
+		$('#fanhui').click(function(){
+           $(window).scrollTop(0);
+        });
+		
+    });
+});
+	
+	$(function(){
+		$(".floating ul li").hover(function(){
+			$(this).find("div").eq(0).stop().show();
+		},function(){
+			$(this).find("div").eq(0).stop().hide();
+		});
+	})
+	//手机显示百分百
+	$("#foot").width($(window).width());
+</script>
+
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3527f095e0ea875435ce750ff7f8436c' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="js/h.js" type="text/javascript"></script>
+<a href="#" target="_blank">
+<img src="images/21.gif" border="0" height="20" width="20">
+</a>
+</div>
+ 
+<script type="text/javascript" src="images/header.js"></script> 
+<script type="text/javascript" src="images/js-clib.js"></script> 
+<script type="text/javascript" src="images/global.js"></script>
+<script type="text/javascript">
+</body></html></body></html>
